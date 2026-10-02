@@ -1,0 +1,69 @@
+/* === Base Layout === */
+.home {
+  font-family: "Poppins", sans-serif;
+  background: linear-gradient(135deg, #fffaf6 0%, #fff 100%);
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* === Search Bar Section (Purana — hidden) === */
+.home-search {
+  display: none;
+}
+
+/* === Search Wrapper (New SearchBar ke liye) === */
+.home-search-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 30px 20px;
+  margin: 20px auto;
+  width: 100%;
+  max-width: 700px;
+}
+
+/* === Smooth Section Transitions === */
+section,
+.home-search-wrapper {
+  animation: fadeSlide 0.6s ease forwards;
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+@keyframes fadeSlide {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* === AppDownload Area Padding === */
+#app-download {
+  margin-top: 60px;
+}
+
+/* === Responsive Design === */
+@media (max-width: 1024px) {
+  .home-search-wrapper {
+    max-width: 90%;
+  }
+}
+
+@media (max-width: 768px) {
+  .home-search-wrapper {
+    padding: 20px 15px;
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .home-search-wrapper {
+    padding: 15px 10px;
+  }
+}
+
+/* ✅ Home page me horizontal overflow na ho */
+.home {
+  overflow-x: hidden;
+  padding-top: 0;
+}

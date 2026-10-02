@@ -1,0 +1,1169 @@
+/* =========================================================
+   LIST PAGE - FOOD ADMIN PANEL
+   ========================================================= */
+
+.list {
+  width: 100%;
+  max-width: 1500px;
+  margin: 0 auto;
+  padding: 28px;
+  color: #1f2937;
+  box-sizing: border-box;
+}
+
+.list.add {
+  /* min-height: calc(100vh - 80px); */
+  background: #f8fafc;
+}
+
+/* =========================================================
+   HEADER
+   ========================================================= */
+
+.list-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 64px;
+  margin-bottom: 24px;
+}
+
+.list-header > p {
+  margin: 0;
+  font-size: 28px;
+  font-weight: 700;
+  color: #111827;
+  letter-spacing: -0.5px;
+}
+
+/* =========================================================
+   SEARCH BAR
+   ========================================================= */
+
+.search-bar {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: min(100%, 400px);
+  height: 46px;
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(15, 23, 42, 0.04);
+  transition: all 0.25s ease;
+}
+
+.search-bar:focus-within {
+  border-color: #ff4d2d;
+  box-shadow: 0 0 0 4px rgba(255, 77, 45, 0.1);
+}
+
+.search-icon {
+  padding-left: 15px;
+  font-size: 18px;
+  line-height: 1;
+  opacity: 0.7;
+}
+
+.search-bar input {
+  width: 100%;
+  height: 100%;
+  border: none;
+  outline: none;
+  background: transparent;
+  padding: 0 42px 0 10px;
+  font-size: 14px;
+  color: #1f2937;
+  box-sizing: border-box;
+}
+
+.search-bar input::placeholder {
+  color: #9ca3af;
+}
+
+.clear-search {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 28px;
+  height: 28px;
+  border: none;
+  border-radius: 50%;
+  background: #f3f4f6;
+  color: #6b7280;
+  cursor: pointer;
+  font-size: 13px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+}
+
+.clear-search:hover {
+  background: #fee2e2;
+  color: #ef4444;
+}
+
+/* =========================================================
+   CATEGORY FILTERS
+   ========================================================= */
+
+.category-filters {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+}
+
+.category-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 9px 14px;
+  border: 1px solid #e5e7eb;
+  border-radius: 999px;
+  background: #ffffff;
+  color: #4b5563;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.22s ease;
+}
+
+.category-btn:hover {
+  border-color: #ffb5a5;
+  color: #ff4d2d;
+  background: #fff7f5;
+  transform: translateY(-1px);
+}
+
+.category-btn.active {
+  color: #ffffff;
+  background: linear-gradient(135deg, #ff512f, #ff2e63);
+  border-color: transparent;
+  box-shadow: 0 5px 14px rgba(255, 77, 45, 0.25);
+}
+
+.category-count {
+  min-width: 22px;
+  height: 22px;
+  padding: 0 6px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 999px;
+  background: #f3f4f6;
+  color: #6b7280;
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.category-btn.active .category-count {
+  background: rgba(255, 255, 255, 0.2);
+  color: #ffffff;
+}
+
+/* =========================================================
+   BULK ACTION BAR
+   ========================================================= */
+
+.bulk-action-bar {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin: 20px 0;
+  padding: 14px 18px;
+  border: 1px solid #fed7aa;
+  border-radius: 12px;
+  background: linear-gradient(
+    135deg,
+    #fff7ed,
+    #fffaf5
+  );
+  box-shadow: 0 4px 12px rgba(249, 115, 22, 0.08);
+  animation: slideDown 0.25s ease;
+}
+
+.bulk-action-bar p {
+  margin: 0;
+  margin-right: auto;
+  color: #7c2d12;
+  font-size: 14px;
+}
+
+.bulk-action-bar p b {
+  color: #ea580c;
+  font-size: 16px;
+}
+
+.bulk-delete-btn,
+.bulk-cancel-btn {
+  height: 38px;
+  padding: 0 16px;
+  border-radius: 8px;
+  border: none;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.bulk-delete-btn {
+  background: #dc2626;
+  color: #ffffff;
+}
+
+.bulk-delete-btn:hover:not(:disabled) {
+  background: #b91c1c;
+  box-shadow: 0 4px 10px rgba(220, 38, 38, 0.25);
+  transform: translateY(-1px);
+}
+
+.bulk-delete-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.bulk-cancel-btn {
+  background: #ffffff;
+  color: #4b5563;
+  border: 1px solid #e5e7eb;
+}
+
+.bulk-cancel-btn:hover {
+  background: #f3f4f6;
+  color: #111827;
+}
+
+/* =========================================================
+   LIST COUNT
+   ========================================================= */
+
+.list-count {
+  margin: 18px 0 12px;
+  color: #6b7280;
+  font-size: 13px;
+}
+
+.list-count b {
+  color: #374151;
+  font-weight: 700;
+}
+
+/* =========================================================
+   TABLE CONTAINER
+   ========================================================= */
+
+.list-table {
+  width: 100%;
+  overflow-x: auto;
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 16px;
+  box-shadow: 0 5px 20px rgba(15, 23, 42, 0.05);
+}
+
+/* =========================================================
+   TABLE ROW
+   ========================================================= */
+
+.list-table-format {
+  display: grid;
+  grid-template-columns:
+    50px
+    90px
+    minmax(170px, 1.5fr)
+    minmax(120px, 1fr)
+    100px
+    130px
+    180px;
+
+  align-items: center;
+  gap: 15px;
+  min-width: 900px;
+  padding: 14px 18px;
+  border-bottom: 1px solid #f1f5f9;
+  transition:
+    background 0.2s ease,
+    box-shadow 0.2s ease;
+  box-sizing: border-box;
+}
+
+.list-table-format:last-child {
+  border-bottom: none;
+}
+
+/* =========================================================
+   TABLE HEADER
+   ========================================================= */
+
+.list-table-format.title {
+  min-height: 54px;
+  padding-top: 12px;
+  padding-bottom: 12px;
+  background: #f8fafc;
+  color: #64748b;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.list-table-format.title b {
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+}
+
+/* =========================================================
+   ROW HOVER
+   ========================================================= */
+
+.list-table-format:not(.title):hover {
+  background: #fffaf8;
+}
+
+.list-table-format.row-selected {
+  background: #fff4f1;
+  box-shadow: inset 4px 0 0 #ff4d2d;
+}
+
+.list-table-format.row-selected:hover {
+  background: #ffefeb;
+}
+
+/* =========================================================
+   CHECKBOX
+   ========================================================= */
+
+.row-checkbox {
+  appearance: none;
+  -webkit-appearance: none;
+
+  width: 18px;
+  height: 18px;
+
+  border: 1.5px solid #cbd5e1;
+  border-radius: 5px;
+
+  background: #ffffff;
+  cursor: pointer;
+
+  display: grid;
+  place-content: center;
+
+  transition: all 0.2s ease;
+}
+
+.row-checkbox:hover {
+  border-color: #ff4d2d;
+}
+
+.row-checkbox:checked {
+  background: #ff4d2d;
+  border-color: #ff4d2d;
+}
+
+.row-checkbox:checked::after {
+  content: "✓";
+  color: #ffffff;
+  font-size: 12px;
+  font-weight: 800;
+  line-height: 1;
+}
+
+/* =========================================================
+   FOOD IMAGE
+   ========================================================= */
+
+.list-table-format img {
+  width: 62px;
+  height: 62px;
+  object-fit: cover;
+  border-radius: 10px;
+  border: 1px solid #f1f5f9;
+  background: #f8fafc;
+  box-shadow: 0 3px 8px rgba(15, 23, 42, 0.08);
+  transition: transform 0.25s ease;
+}
+
+.list-table-format:not(.title):hover img {
+  transform: scale(1.04);
+}
+
+/* =========================================================
+   TEXT
+   ========================================================= */
+
+.list-table-format p {
+  margin: 0;
+  color: #475569;
+  font-size: 14px;
+}
+
+.list-table-format p:nth-of-type(1) {
+  color: #111827;
+  font-weight: 650;
+}
+
+.list-table-format p:nth-of-type(2) {
+  color: #64748b;
+}
+
+.list-table-format p:nth-of-type(3) {
+  color: #111827;
+  font-weight: 700;
+}
+
+/* =========================================================
+   STOCK BADGES
+   ========================================================= */
+
+.stock-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: fit-content;
+  min-width: 82px;
+  padding: 6px 9px;
+  border-radius: 999px;
+  font-size: 11px;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.stock-badge.in-stock {
+  color: #15803d;
+  background: #dcfce7;
+  border: 1px solid #bbf7d0;
+}
+
+.stock-badge.low-stock {
+  color: #b45309;
+  background: #fef3c7;
+  border: 1px solid #fde68a;
+}
+
+.stock-badge.out-of-stock {
+  color: #b91c1c;
+  background: #fee2e2;
+  border: 1px solid #fecaca;
+}
+
+/* =========================================================
+   ACTION BUTTONS
+   ========================================================= */
+
+.action-buttons {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.edit-btn,
+.delete-btn {
+  height: 34px;
+  padding: 0 13px;
+  border-radius: 7px;
+  font-size: 12px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.edit-btn {
+  color: #2563eb;
+  background: #eff6ff;
+  border: 1px solid #dbeafe;
+}
+
+.edit-btn:hover {
+  color: #ffffff;
+  background: #2563eb;
+  border-color: #2563eb;
+  box-shadow: 0 4px 10px rgba(37, 99, 235, 0.2);
+}
+
+.delete-btn {
+  color: #dc2626;
+  background: #fef2f2;
+  border: 1px solid #fecaca;
+}
+
+.delete-btn:hover {
+  color: #ffffff;
+  background: #dc2626;
+  border-color: #dc2626;
+  box-shadow: 0 4px 10px rgba(220, 38, 38, 0.2);
+}
+
+/* =========================================================
+   EMPTY STATE
+   ========================================================= */
+
+.no-results {
+  min-width: 900px;
+  min-height: 180px;
+
+  margin: 0;
+  padding: 50px 20px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  color: #94a3b8;
+  font-size: 14px;
+  text-align: center;
+  box-sizing: border-box;
+}
+
+/* =========================================================
+   SCROLLBAR
+   ========================================================= */
+
+.list-table::-webkit-scrollbar {
+  height: 8px;
+}
+
+.list-table::-webkit-scrollbar-track {
+  background: #f8fafc;
+  border-radius: 10px;
+}
+
+.list-table::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 10px;
+}
+
+.list-table::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+
+/* =========================================================
+   ANIMATIONS
+   ========================================================= */
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* =========================================================
+   TABLE ROW ANIMATION
+   ========================================================= */
+
+.list-table-format:not(.title) {
+  animation: fadeInRow 0.25s ease both;
+}
+
+@keyframes fadeInRow {
+  from {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* =========================================================
+   LARGE SCREEN
+   ========================================================= */
+
+@media (min-width: 1400px) {
+  .list {
+    padding: 32px 40px;
+  }
+
+  .list-table-format {
+    grid-template-columns:
+      55px
+      100px
+      minmax(200px, 1.6fr)
+      minmax(140px, 1fr)
+      110px
+      140px
+      200px;
+
+    gap: 18px;
+    padding-left: 22px;
+    padding-right: 22px;
+  }
+}
+
+/* =========================================================
+   TABLET
+   ========================================================= */
+
+@media (max-width: 900px) {
+  .list {
+    padding: 22px 16px;
+  }
+
+  .list-header {
+    align-items: stretch;
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .list-header > p {
+    font-size: 24px;
+  }
+
+  .search-bar {
+    width: 100%;
+  }
+
+  .category-filters {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    padding-bottom: 5px;
+  }
+
+  .category-btn {
+    flex-shrink: 0;
+  }
+
+  .bulk-action-bar {
+    flex-wrap: wrap;
+  }
+
+  .bulk-action-bar p {
+    width: 100%;
+    margin-right: 0;
+  }
+}
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 600px) {
+  .list {
+    padding: 18px 10px;
+  }
+
+  .list.add {
+    min-height: 100vh;
+  }
+
+  .list-header {
+    margin-bottom: 18px;
+  }
+
+  .list-header > p {
+    font-size: 22px;
+  }
+
+  .search-bar {
+    height: 44px;
+  }
+
+  .category-filters {
+    gap: 7px;
+    margin-bottom: 15px;
+  }
+
+  .category-btn {
+    padding: 8px 11px;
+    font-size: 12px;
+  }
+
+  .category-count {
+    min-width: 20px;
+    height: 20px;
+    font-size: 10px;
+  }
+
+  .bulk-action-bar {
+    padding: 12px;
+    gap: 8px;
+  }
+
+  .bulk-delete-btn,
+  .bulk-cancel-btn {
+    flex: 1;
+    padding: 0 10px;
+  }
+
+  .list-count {
+    font-size: 12px;
+  }
+
+  .list-table {
+    border-radius: 12px;
+  }
+
+  .list-table-format {
+    min-width: 850px;
+    padding: 12px 14px;
+    gap: 12px;
+  }
+
+  .list-table-format img {
+    width: 55px;
+    height: 55px;
+  }
+
+  .action-buttons {
+    gap: 6px;
+  }
+
+  .edit-btn,
+  .delete-btn {
+    padding: 0 10px;
+    height: 32px;
+  }
+}
+
+/* =========================================================
+   VERY SMALL MOBILE
+   ========================================================= */
+
+@media (max-width: 400px) {
+  .list {
+    padding: 15px 8px;
+  }
+
+  .list-header > p {
+    font-size: 20px;
+  }
+
+  .search-bar input {
+    font-size: 13px;
+  }
+
+  .bulk-action-bar {
+    border-radius: 10px;
+  }
+}
+
+/* =========================================================
+   ACCESSIBILITY
+   ========================================================= */
+
+button:focus-visible,
+input:focus-visible {
+  outline: 2px solid #ff4d2d;
+  outline-offset: 2px;
+}
+
+/* =========================================================
+   REDUCED MOTION
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* ============================================
+   ✅ SEARCH BAR — PREMIUM & ANIMATED
+   ============================================ */
+.search-bar {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: linear-gradient(135deg, #ffffff 0%, #fafbff 100%);
+  border: 2px solid #eef0f5;
+  border-radius: 50px;
+  padding: 10px 18px;
+  flex: 1;
+  max-width: 380px;
+  transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 
+    0 2px 8px rgba(0, 0, 0, 0.04),
+    inset 0 1px 0 rgba(255, 255, 255, 0.8);
+  overflow: hidden;
+}
+
+/* ✅ Animated gradient border glow on hover */
+.search-bar::before {
+  content: "";
+  position: absolute;
+  inset: -2px;
+  border-radius: 50px;
+  background: linear-gradient(135deg, #ff6347, #e74c3c, #ff8c69, #ff6347);
+  background-size: 300% 300%;
+  opacity: 0;
+  z-index: -1;
+  transition: opacity 0.35s ease;
+  animation: gradientShift 3s ease infinite;
+}
+
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.search-bar:hover {
+  border-color: transparent;
+  box-shadow: 
+    0 6px 20px rgba(255, 99, 71, 0.15),
+    0 2px 8px rgba(0, 0, 0, 0.05);
+  transform: translateY(-1px);
+}
+
+.search-bar:hover::before {
+  opacity: 0.35;
+}
+
+.search-bar:focus-within {
+  border-color: transparent;
+  background: #ffffff;
+  box-shadow: 
+    0 0 0 4px rgba(255, 99, 71, 0.12),
+    0 8px 24px rgba(255, 99, 71, 0.18);
+  transform: translateY(-2px);
+}
+
+.search-bar:focus-within::before {
+  opacity: 1;
+}
+
+/* ✅ Search Icon — animated pulse */
+.search-bar .search-icon {
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #fff4f2, #ffe6e0);
+  color: #ff6347;
+  transition: all 0.3s ease;
+  flex-shrink: 0;
+}
+
+.search-bar:hover .search-icon,
+.search-bar:focus-within .search-icon {
+  background: linear-gradient(135deg, #ff6347, #e74c3c);
+  color: #ffffff;
+  transform: scale(1.1) rotate(-8deg);
+  box-shadow: 0 4px 12px rgba(255, 99, 71, 0.4);
+}
+
+/* ✅ Input */
+.search-bar input {
+  flex: 1;
+  border: none;
+  outline: none;
+  font-size: 14px;
+  font-family: "Poppins", sans-serif;
+  background: transparent;
+  color: #1a1a2e;
+  font-weight: 500;
+  padding: 4px 0;
+  letter-spacing: 0.2px;
+}
+
+.search-bar input::placeholder {
+  color: #aab0bd;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.search-bar:focus-within input::placeholder {
+  color: #ff6347;
+  opacity: 0.6;
+  transform: translateX(3px);
+}
+
+/* ✅ Clear Button — premium round */
+.clear-search {
+  background: linear-gradient(135deg, #ffe6e0, #ffd5cc);
+  border: none;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  cursor: pointer;
+  color: #e74c3c;
+  font-size: 11px;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.25s ease;
+  flex-shrink: 0;
+  box-shadow: 0 2px 6px rgba(231, 76, 60, 0.15);
+}
+
+.clear-search:hover {
+  background: linear-gradient(135deg, #e74c3c, #a93226);
+  color: #ffffff;
+  transform: scale(1.15) rotate(90deg);
+  box-shadow: 0 4px 12px rgba(231, 76, 60, 0.4);
+}
+
+.clear-search:active {
+  transform: scale(0.95) rotate(90deg);
+}
+
+/* ✅ Keyboard focus dot (cute detail) */
+.search-bar:focus-within::after {
+  content: "";
+  position: absolute;
+  bottom: 6px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 30px;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #ff6347, transparent);
+  border-radius: 50px;
+  animation: pulseLine 1.5s ease infinite;
+}
+
+@keyframes pulseLine {
+  0%, 100% { opacity: 0.4; width: 30px; }
+  50% { opacity: 1; width: 60px; }
+}
+
+/* ✅ Responsive */
+@media (max-width: 1000px) {
+  .search-bar {
+    max-width: 100%;
+    padding: 9px 16px;
+  }
+
+  .search-bar input {
+    font-size: 13.5px;
+  }
+
+  .search-bar .search-icon {
+    width: 24px;
+    height: 24px;
+    font-size: 14px;
+  }
+}
+
+
+/* ═══════════════════════════════════════════
+   ✅ EXPANDED TABLE — Full Details View
+   ═══════════════════════════════════════════ */
+
+.list-table-expanded {
+  grid-template-columns: 40px 80px 2.2fr 1fr 1.1fr 1fr 1fr 160px !important;
+  gap: 12px !important;
+  padding: 14px 18px !important;
+}
+
+.list-table-format.title.list-table-expanded {
+  padding: 16px 18px !important;
+  background: #fafafa;
+}
+
+/* Image wrapper with count */
+.img-wrapper {
+  position: relative;
+  width: 70px;
+  height: 70px;
+  flex-shrink: 0;
+}
+
+.food-thumb {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 10px;
+  border: 1px solid #f0f0f0;
+}
+
+.img-count-badge {
+  position: absolute;
+  bottom: -4px;
+  right: -4px;
+  background: linear-gradient(135deg, tomato, #e74c3c);
+  color: white;
+  font-size: 10px;
+  font-weight: 800;
+  padding: 2px 7px;
+  border-radius: 50px;
+  border: 2px solid white;
+  box-shadow: 0 3px 8px rgba(255, 99, 71, 0.4);
+}
+
+/* Food Details Cell */
+.food-details-cell {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  min-width: 0;
+}
+
+.food-name {
+  font-size: 14px;
+  font-weight: 800;
+  color: #262626;
+  margin: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.food-desc-preview {
+  font-size: 11.5px;
+  color: #888;
+  margin: 0;
+  line-height: 1.4;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.food-badges-row {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+  margin-top: 2px;
+}
+
+.discount-badge {
+  display: inline-block;
+  background: linear-gradient(135deg, #e74c3c, #c0392b);
+  color: white;
+  padding: 2px 8px;
+  border-radius: 50px;
+  font-size: 10px;
+  font-weight: 800;
+  box-shadow: 0 2px 6px rgba(231, 76, 60, 0.3);
+}
+
+/* Price Cell */
+.price-cell {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.final-price {
+  font-size: 14.5px;
+  font-weight: 800;
+  color: #27ae60;
+  margin: 0;
+}
+
+.old-price {
+  font-size: 11px;
+  color: #aaa;
+  text-decoration: line-through;
+  margin: 0;
+  font-weight: 500;
+}
+
+/* Category */
+.food-category-cell {
+  font-size: 12.5px;
+  font-weight: 700;
+  color: tomato;
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+  margin: 0;
+}
+
+/* Stock Cell */
+.stock-cell,
+.veg-cell {
+  display: flex;
+  align-items: center;
+}
+
+.stock-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  padding: 5px 10px;
+  border-radius: 50px;
+  font-size: 11.5px;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.stock-badge.in-stock {
+  background: #e8f5e9;
+  color: #27ae60;
+  border: 1.5px solid #c8e6c9;
+}
+
+.stock-badge.low-stock {
+  background: #fff8e1;
+  color: #f39c12;
+  border: 1.5px solid #ffe082;
+  animation: lowStockPulse 1.5s ease-in-out infinite;
+}
+
+.stock-badge.out-of-stock {
+  background: #ffebee;
+  color: #e74c3c;
+  border: 1.5px solid #ffcdd2;
+}
+
+@keyframes lowStockPulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.7; }
+}
+
+/* Veg Badge */
+.veg-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  padding: 4px 10px;
+  border-radius: 50px;
+  font-size: 11px;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.veg-badge.veg {
+  background: #e8f5e9;
+  color: #27ae60;
+  border: 1.5px solid #c8e6c9;
+}
+
+.veg-badge.non-veg {
+  background: #ffebee;
+  color: #e74c3c;
+  border: 1.5px solid #ffcdd2;
+}
+
+/* Row Hover */
+.list-table-format.list-table-expanded {
+  transition: all 0.25s ease;
+}
+
+.list-table-format.list-table-expanded:hover {
+  background: #fffaf9;
+}
+
+.list-table-format.list-table-expanded.row-selected {
+  background: #fff4f2;
+  border-left: 4px solid tomato;
+}
+
+/* Responsive */
+@media (max-width: 1200px) {
+  .list-table {
+    overflow-x: auto;
+  }
+  .list-table-format.list-table-expanded {
+    min-width: 1150px;
+  }
+}

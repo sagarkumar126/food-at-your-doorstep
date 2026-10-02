@@ -1,0 +1,178 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+  scroll-behavior: smooth;
+}
+
+body {
+  background: #fff;
+  color: #262626;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.app {
+  width: 90%;
+  margin: 0 auto;
+}
+
+/* ✅ Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: tomato;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #e74c3c;
+}
+
+/* ✅ Animations */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+}
+
+@keyframes slideIn {
+  from { transform: translateX(-100%); }
+  to { transform: translateX(0); }
+}
+
+/* ═══════════════════════════════════════════
+   🔥 TOAST NOTIFICATIONS — TOP CENTER (FINAL FIX)
+   ═══════════════════════════════════════════ */
+
+/* Container — TOP pe lock, BOTTOM se hatao */
+html body .Toastify__toast-container,
+html body div.Toastify__toast-container {
+  position: fixed !important;
+  top: 20px !important;
+  bottom: auto !important;
+  left: 50% !important;
+  right: auto !important;
+  transform: translateX(-50%) !important;
+  z-index: 999999 !important;
+  width: auto !important;
+  max-width: 90vw !important;
+  min-width: 320px !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  pointer-events: auto !important;
+}
+
+/* Top-center variant */
+.Toastify__toast-container--top-center {
+  position: fixed !important;
+  top: 20px !important;
+  bottom: auto !important;
+  left: 50% !important;
+  right: auto !important;
+  transform: translateX(-50%) !important;
+}
+
+/* Individual Toast */
+html body .Toastify__toast {
+  position: relative !important;
+  top: 0 !important;
+  bottom: auto !important;
+  left: auto !important;
+  right: auto !important;
+  border-radius: 12px !important;
+  font-family: 'Poppins', sans-serif !important;
+  font-weight: 600 !important;
+  font-size: 14px !important;
+  min-height: auto !important;
+  padding: 14px 20px !important;
+  margin-bottom: 10px !important;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.25) !important;
+  border: none !important;
+  animation: toastFadeIn 0.3s ease !important;
+}
+
+@keyframes toastFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Library ki slide/bounce animations band karo */
+html body [class*="Toastify__slide-enter"],
+html body [class*="Toastify__slide-exit"],
+html body [class*="Toastify__bounce-enter"],
+html body [class*="Toastify__bounce-exit"],
+html body [class*="Toastify__zoom-enter"],
+html body [class*="Toastify__zoom-exit"] {
+  animation: none !important;
+}
+
+/* Colored Theme */
+.Toastify__toast-theme--colored.Toastify__toast--success {
+  background: linear-gradient(135deg, #27ae60, #2ecc71) !important;
+}
+
+.Toastify__toast-theme--colored.Toastify__toast--error {
+  background: linear-gradient(135deg, #e74c3c, #c0392b) !important;
+}
+
+.Toastify__toast-theme--colored.Toastify__toast--warning {
+  background: linear-gradient(135deg, #f39c12, #e67e22) !important;
+}
+
+.Toastify__toast-theme--colored.Toastify__toast--info {
+  background: linear-gradient(135deg, #3498db, #2980b9) !important;
+}
+
+/* Progress bar */
+.Toastify__progress-bar {
+  height: 4px !important;
+}
+
+/* Close button */
+.Toastify__close-button {
+  opacity: 0.7 !important;
+  align-self: center !important;
+}
+
+.Toastify__close-button:hover {
+  opacity: 1 !important;
+}
+
+/* 🔥 TOAST TOP FIX */
+.Toastify__toast-container,
+.Toastify__toast-container--top-center {
+  top: 20px !important;
+  bottom: auto !important;
+  left: 50% !important;
+  right: auto !important;
+  transform: translateX(-50%) !important;
+  z-index: 99999 !important;
+}

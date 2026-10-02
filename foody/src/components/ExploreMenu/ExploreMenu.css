@@ -1,0 +1,82 @@
+.explore-menu {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 40px 0;
+}
+
+.explore-menu h1 {
+  color: #262626;
+  font-weight: 700;
+  font-size: 36px;
+  background: linear-gradient(135deg, #262626, tomato);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.explore-menu-text {
+  max-width: 60%;
+  color: #808080;
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+.explore-menu-list {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 30px;
+  text-align: center;
+  margin: 20px 0;
+  overflow-x: scroll;
+  padding: 10px 0;
+}
+
+.explore-menu-list::-webkit-scrollbar {
+  display: none;
+}
+
+.explore-menu-list-item {
+  cursor: pointer;
+  transition: transform 0.3s;
+}
+
+.explore-menu-list-item:hover {
+  transform: translateY(-8px);
+}
+
+.explore-menu-list-item img {
+  width: 7.5vw;
+  min-width: 80px;
+  border-radius: 50%;
+  transition: 0.3s;
+  padding: 4px;
+  border: 3px solid transparent;
+}
+
+.explore-menu-list-item img.active {
+  border: 3px solid tomato;
+  padding: 4px;
+  box-shadow: 0 0 20px rgba(255, 99, 71, 0.5);
+}
+
+.explore-menu-list-item p {
+  margin-top: 12px;
+  color: #747474;
+  font-size: 15px;
+  font-weight: 500;
+  transition: 0.3s;
+}
+
+.explore-menu-list-item:hover p {
+  color: tomato;
+  font-weight: 700;
+}
+
+.explore-menu hr {
+  margin: 10px 0;
+  height: 2px;
+  background: linear-gradient(to right, transparent, #e2e2e2, transparent);
+  border: none;
+}

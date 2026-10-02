@@ -1,0 +1,186 @@
+/* ============================================
+   ✅ SIDEBAR — PREMIUM & CLEAN
+   ============================================ */
+
+.sidebar {
+  width: 240px;
+  min-height: 100vh;
+  background: #ffffff;
+  border-right: 1px solid #eef0f5;
+  padding: 20px 14px;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+  box-shadow: 2px 0 12px rgba(0, 0, 0, 0.03);
+  position: sticky;
+  top: 0;
+  overflow-y: auto;
+}
+
+/* ============================================
+   ✅ OPTIONS WRAPPER
+   ============================================ */
+.sidebar-options {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-top: 10px;
+}
+
+/* ============================================
+   ✅ EACH OPTION
+   ============================================ */
+.sidebar-option {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 12px 16px;
+  border-radius: 12px;
+  text-decoration: none;
+  color: #555;
+  font-size: 14px;
+  font-weight: 600;
+  transition: all 0.25s ease;
+  position: relative;
+  cursor: pointer;
+  border-left: 3px solid transparent;
+}
+
+.sidebar-option img,
+.sidebar-svg-icon {
+  width: 22px;
+  height: 22px;
+  object-fit: contain;
+  transition: all 0.25s ease;
+  opacity: 0.75;
+  flex-shrink: 0;
+}
+
+.sidebar-option p {
+  margin: 0;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.2px;
+  transition: all 0.25s ease;
+}
+
+/* ============================================
+   ✅ HOVER STATE
+   ============================================ */
+.sidebar-option:hover {
+  background: linear-gradient(90deg, #fff4f2 0%, #fff9f7 100%);
+  color: #ff6347;
+  transform: translateX(3px);
+}
+
+.sidebar-option:hover img,
+.sidebar-option:hover .sidebar-svg-icon {
+  opacity: 1;
+  transform: scale(1.1);
+  filter: drop-shadow(0 2px 6px rgba(255, 99, 71, 0.35));
+}
+
+.sidebar-option:hover p {
+  color: #ff6347;
+}
+
+/* ============================================
+   ✅ ACTIVE STATE (NavLink)
+   ============================================ */
+.sidebar-option.active {
+  background: linear-gradient(135deg, #ff6347, #e74c3c);
+  color: #ffffff;
+  border-left: 3px solid #a93226;
+  box-shadow: 0 6px 18px rgba(255, 99, 71, 0.35);
+}
+
+.sidebar-option.active img,
+.sidebar-option.active .sidebar-svg-icon {
+  opacity: 1;
+  filter: brightness(0) invert(1);
+  transform: scale(1.05);
+}
+
+.sidebar-option.active p {
+  color: #ffffff;
+  font-weight: 700;
+}
+
+/* ✅ Active state ke left mein chhota glow dot */
+.sidebar-option.active::after {
+  content: "";
+  position: absolute;
+  right: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 6px;
+  height: 6px;
+  background: #ffffff;
+  border-radius: 50%;
+  box-shadow: 0 0 8px rgba(255, 255, 255, 0.9);
+}
+
+/* ============================================
+   ✅ SCROLLBAR (subtle)
+   ============================================ */
+.sidebar::-webkit-scrollbar {
+  width: 5px;
+}
+
+.sidebar::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.sidebar::-webkit-scrollbar-thumb {
+  background: #e0e4ec;
+  border-radius: 10px;
+}
+
+.sidebar::-webkit-scrollbar-thumb:hover {
+  background: #ff6347;
+}
+
+/* ============================================
+   ✅ RESPONSIVE
+   ============================================ */
+@media (max-width: 900px) {
+  .sidebar {
+    width: 200px;
+    padding: 16px 10px;
+  }
+
+  .sidebar-option {
+    padding: 10px 12px;
+    gap: 10px;
+    font-size: 13px;
+  }
+
+  .sidebar-option p {
+    font-size: 13px;
+  }
+
+  .sidebar-option img,
+  .sidebar-svg-icon {
+    width: 20px;
+    height: 20px;
+  }
+}
+
+@media (max-width: 600px) {
+  .sidebar {
+    width: 70px;
+    padding: 14px 8px;
+  }
+
+  .sidebar-option {
+    justify-content: center;
+    padding: 12px 8px;
+  }
+
+  .sidebar-option p {
+    display: none; /* Mobile pe sirf icons */
+  }
+
+  .sidebar-option.active::after {
+    display: none;
+  }
+}

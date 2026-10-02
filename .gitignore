@@ -1,0 +1,49 @@
+# Environment Files
+.env
+.env.local
+.env.production
+backends/.env
+admin/.env
+foody/.env
+
+# Node Modules
+node_modules/
+*/node_modules/
+
+# Build Output
+dist/
+build/
+*/dist/
+*/build/
+
+# Uploads
+backends/uploads/
+backends/uploads/*
+!backends/uploads/.gitkeep
+
+# Logs
+*.log
+npm-debug.log*
+
+# OS Files
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+
+# Vercel / Render
+.vercel
+
+# Extra Files
+*.zip
+admin/src/pages/List/fulldata.txt
+admin/src/assets/profile_image1.png
+backends/src/
+backends/node_modules/
+
+
+# Personal Files
+backends/names.txt
+foody/mttxtt.txt
